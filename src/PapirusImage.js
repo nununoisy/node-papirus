@@ -14,7 +14,7 @@ export default class PapirusImage {
 		});
 	}
 
-	addImage(path, dither = true) {
+	addImage(path, dither = true, x = 0, y = 0) {
 		return Jimp.read(path).then((image) => {
 			image.contain(this.width, this.height);
 			if (dither) {
@@ -23,7 +23,7 @@ export default class PapirusImage {
 			else {
 				image.bitmap.data = this.monochrome.dither(image.bitmap.data, this.width);
 			}
-			this.image.composite(image, 0, 0);
+			this.image.composite(image, x, y);
 			return this;
 		});
 	}
