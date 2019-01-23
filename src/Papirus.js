@@ -24,7 +24,7 @@ export default class Papirus {
 		this.image = new PapirusImage(this.width, this.height);
 	}
 	/**
-	 * Resets the EPD FUSE library.
+	 * Clears the Papirus screen, regardless of what resides in the buffer.
 	 * @returns {Papirus}
 	 */
 	reset() {
